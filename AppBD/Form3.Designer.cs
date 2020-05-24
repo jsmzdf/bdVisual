@@ -32,9 +32,15 @@
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.groupBox8 = new System.Windows.Forms.GroupBox();
+            this.dataGridView5 = new System.Windows.Forms.DataGridView();
+            this.groupBox7 = new System.Windows.Forms.GroupBox();
+            this.dataGridView4 = new System.Windows.Forms.DataGridView();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
             this.textBox27 = new System.Windows.Forms.TextBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.textBox21 = new System.Windows.Forms.TextBox();
@@ -75,9 +81,11 @@
             this.button7 = new System.Windows.Forms.Button();
             this.button8 = new System.Windows.Forms.Button();
             this.label24 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
+            this.groupBox8.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView5)).BeginInit();
+            this.groupBox7.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).BeginInit();
             this.groupBox6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.groupBox5.SuspendLayout();
@@ -130,6 +138,8 @@
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.Color.DeepSkyBlue;
+            this.groupBox1.Controls.Add(this.groupBox8);
+            this.groupBox1.Controls.Add(this.groupBox7);
             this.groupBox1.Controls.Add(this.groupBox6);
             this.groupBox1.Controls.Add(this.groupBox5);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -139,6 +149,44 @@
             this.groupBox1.TabIndex = 3;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Consulta";
+            // 
+            // groupBox8
+            // 
+            this.groupBox8.Controls.Add(this.dataGridView5);
+            this.groupBox8.Location = new System.Drawing.Point(790, 253);
+            this.groupBox8.Name = "groupBox8";
+            this.groupBox8.Size = new System.Drawing.Size(485, 272);
+            this.groupBox8.TabIndex = 17;
+            this.groupBox8.TabStop = false;
+            this.groupBox8.Text = "Internos";
+            // 
+            // dataGridView5
+            // 
+            this.dataGridView5.BackgroundColor = System.Drawing.Color.White;
+            this.dataGridView5.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView5.Location = new System.Drawing.Point(22, 19);
+            this.dataGridView5.Name = "dataGridView5";
+            this.dataGridView5.Size = new System.Drawing.Size(427, 239);
+            this.dataGridView5.TabIndex = 15;
+            // 
+            // groupBox7
+            // 
+            this.groupBox7.Controls.Add(this.dataGridView4);
+            this.groupBox7.Location = new System.Drawing.Point(790, 21);
+            this.groupBox7.Name = "groupBox7";
+            this.groupBox7.Size = new System.Drawing.Size(485, 225);
+            this.groupBox7.TabIndex = 16;
+            this.groupBox7.TabStop = false;
+            this.groupBox7.Text = "Radicados";
+            // 
+            // dataGridView4
+            // 
+            this.dataGridView4.BackgroundColor = System.Drawing.Color.White;
+            this.dataGridView4.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView4.Location = new System.Drawing.Point(24, 17);
+            this.dataGridView4.Name = "dataGridView4";
+            this.dataGridView4.Size = new System.Drawing.Size(427, 195);
+            this.dataGridView4.TabIndex = 14;
             // 
             // groupBox6
             // 
@@ -189,6 +237,23 @@
             this.groupBox5.TabIndex = 12;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Información contrato";
+            // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(612, 48);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(121, 22);
+            this.textBox2.TabIndex = 35;
+            this.textBox2.TextChanged += new System.EventHandler(this.textBox2_TextChanged_1);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(607, 29);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(126, 16);
+            this.label4.TabIndex = 34;
+            this.label4.Text = "Número de folios";
             // 
             // textBox27
             // 
@@ -366,7 +431,7 @@
             // 
             // textBox17
             // 
-            this.textBox17.Location = new System.Drawing.Point(336, 48);
+            this.textBox17.Location = new System.Drawing.Point(312, 48);
             this.textBox17.Name = "textBox17";
             this.textBox17.Size = new System.Drawing.Size(183, 22);
             this.textBox17.TabIndex = 10;
@@ -581,22 +646,6 @@
             this.label24.TabIndex = 22;
             this.label24.Text = "Ingresar solo número \r\ndel contrato y año\r\nseparados por guión ";
             // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(553, 31);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(126, 16);
-            this.label4.TabIndex = 34;
-            this.label4.Text = "Número de folios";
-            // 
-            // textBox2
-            // 
-            this.textBox2.Location = new System.Drawing.Point(556, 48);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(177, 22);
-            this.textBox2.TabIndex = 35;
-            // 
             // Form3
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -610,14 +659,18 @@
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox3);
+            this.Controls.Add(this.groupBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Form3";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Contrato";
             this.groupBox1.ResumeLayout(false);
+            this.groupBox8.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView5)).EndInit();
+            this.groupBox7.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).EndInit();
             this.groupBox6.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             this.groupBox5.ResumeLayout(false);
@@ -686,5 +739,9 @@
         private System.Windows.Forms.Button button9;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.DataGridView dataGridView5;
+        private System.Windows.Forms.DataGridView dataGridView4;
+        private System.Windows.Forms.GroupBox groupBox8;
+        private System.Windows.Forms.GroupBox groupBox7;
     }
 }

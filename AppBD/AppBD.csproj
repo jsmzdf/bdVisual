@@ -72,8 +72,10 @@
     <Compile Include="Clases\ExtraerExcel.cs" />
     <Compile Include="Clases\ExtrarExcePres.cs" />
     <Compile Include="Clases\generarcontratosMasi.cs" />
+    <Compile Include="Clases\Internos.cs" />
     <Compile Include="Clases\Prestamo.cs" />
     <Compile Include="Clases\PrestamoContrato.cs" />
+    <Compile Include="Clases\Radicados.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>

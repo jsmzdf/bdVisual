@@ -16,12 +16,15 @@ namespace AppBD
 {
     public partial class Form3 : Form
     {
+
         public DataSet TABLA;
         Conexion con = new Conexion();
         Prestamo prestamo = new Prestamo();
         Contrato contrato = new Contrato();
         ContratisContrato contricon = new ContratisContrato();
         Contratista contratista = new Contratista();
+        Radicados radicado = new Radicados();
+        Internos interno = new Internos();
         string ruta;
         List<ExtraerExcel> ls;
         private string patch ;
@@ -33,14 +36,16 @@ namespace AppBD
             contrato.con.ruta = this.ruta;
             prestamo.con.ruta = this.ruta;
             contricon.con.ruta = this.ruta;
+            radicado.con.ruta = this.ruta;
+            interno.con.ruta = this.ruta;
             InitializeComponent();
 
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            try
-            {
+           /* try
+            {*/
                 dataGridView1.Enabled = false;
                 button5.Enabled = false;
                 groupBox1.Visible = true;
@@ -68,13 +73,28 @@ namespace AppBD
                 prestamo.ORDEN.Fill(prestamo.TABLA, "Prestamo");
                 dataGridView2.DataSource = prestamo.TABLA;
                 dataGridView2.DataMember = "Prestamo";
+                
+                //raducado
+                radicado.consultarR(textBox1.Text);
+                radicado.TABLA = new DataSet();
+                radicado.ORDEN.Fill(radicado.TABLA, "Radicado");
+                dataGridView4.DataSource = radicado.TABLA;
+                dataGridView4.DataMember = "Radicado";
 
+            interno.consultarI(textBox1.Text);
+            interno.TABLA = new DataSet();
+            interno.ORDEN.Fill(interno.TABLA, "interno");
+            dataGridView5.DataSource = interno.TABLA;
+            dataGridView5.DataMember = "interno";
 
-                contratista.consultarContratisa(textBox1.Text);
+            contratista.consultarContratisa(textBox1.Text);
                 textBox20.Text = contratista.nombre;
                 textBox21.Text = contratista.id;
-            }
-            catch (Exception) { MessageBox.Show("Ingrese valoes correctos", "error", MessageBoxButtons.OK, MessageBoxIcon.Error); }
+           /* }/*
+            catch (Exception es) {
+                Console.WriteLine(e);
+                MessageBox.Show("Ingrese valoes correctos"+es, "error", MessageBoxButtons.OK, MessageBoxIcon.Error); 
+            }*/
 
 
 
@@ -152,7 +172,7 @@ namespace AppBD
                                         contricon.addConContri(double.Parse(contratista.cod),
                                                                ls[indice].cod);
 
-                                        MessageBox.Show("Se Agregó un nuevo contrato");
+                                        
                                         break;
 
                                     }
@@ -170,7 +190,7 @@ namespace AppBD
                                 contratista.agregarContratista(double.Parse(ls[indice].identifContraits), ls[indice].nombrecontratis);
                                 contricon.addConContri(double.Parse(contratista.cod),
                                                                 ls[indice].cod);
-                                MessageBox.Show("Se Agregó un nuevo contrato");
+                               
 
 
 
@@ -418,6 +438,11 @@ namespace AppBD
         }
 
         private void label14_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox2_TextChanged_1(object sender, EventArgs e)
         {
 
         }
