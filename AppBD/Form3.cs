@@ -236,7 +236,7 @@ namespace AppBD
             DialogResult accion = MessageBox.Show("¿Quiere realizar acción?", "", sino, MessageBoxIcon.Question);
             if (accion == DialogResult.Yes)
             {
-                contrato.updateC(textBox16.Text, textBox15.Text, textBox14.Text);
+                contrato.updateC(textBox16.Text, textBox15.Text, textBox14.Text, textBox3.Text);
                 textBox14.Enabled = true;
                 MessageBox.Show("Se ha actualizado correctamente");
             }
@@ -255,6 +255,7 @@ namespace AppBD
             textBox14.Text = "";
             textBox15.Text = "";
             textBox16.Text = "";
+            textBox3.Text = "";
         }
 
         private void button6_Click(object sender, EventArgs e)
@@ -443,6 +444,11 @@ namespace AppBD
         }
 
         private void textBox2_TextChanged_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label5_Click_1(object sender, EventArgs e)
         {
 
         }

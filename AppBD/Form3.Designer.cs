@@ -81,6 +81,8 @@
             this.button7 = new System.Windows.Forms.Button();
             this.button8 = new System.Windows.Forms.Button();
             this.label24 = new System.Windows.Forms.Label();
+            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox8.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView5)).BeginInit();
@@ -512,6 +514,8 @@
             // groupBox3
             // 
             this.groupBox3.BackColor = System.Drawing.Color.DeepSkyBlue;
+            this.groupBox3.Controls.Add(this.label5);
+            this.groupBox3.Controls.Add(this.textBox3);
             this.groupBox3.Controls.Add(this.button6);
             this.groupBox3.Controls.Add(this.dataGridView3);
             this.groupBox3.Controls.Add(this.button5);
@@ -524,7 +528,7 @@
             this.groupBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox3.Location = new System.Drawing.Point(1, 88);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(1286, 323);
+            this.groupBox3.Size = new System.Drawing.Size(1286, 371);
             this.groupBox3.TabIndex = 5;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Editar";
@@ -547,7 +551,7 @@
             this.button5.BackColor = System.Drawing.Color.LightSkyBlue;
             this.button5.Enabled = false;
             this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button5.Location = new System.Drawing.Point(84, 279);
+            this.button5.Location = new System.Drawing.Point(104, 323);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(95, 24);
             this.button5.TabIndex = 5;
@@ -646,6 +650,23 @@
             this.label24.TabIndex = 22;
             this.label24.Text = "Ingresar solo número \r\ndel contrato y año\r\nseparados por guión ";
             // 
+            // textBox3
+            // 
+            this.textBox3.Location = new System.Drawing.Point(20, 298);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(100, 22);
+            this.textBox3.TabIndex = 6;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(17, 276);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(75, 16);
+            this.label5.TabIndex = 7;
+            this.label5.Text = "No. Folos";
+            this.label5.Click += new System.EventHandler(this.label5_Click_1);
+            // 
             // Form3
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -659,9 +680,9 @@
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.groupBox2);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Form3";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -743,5 +764,7 @@
         private System.Windows.Forms.DataGridView dataGridView4;
         private System.Windows.Forms.GroupBox groupBox8;
         private System.Windows.Forms.GroupBox groupBox7;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox textBox3;
     }
 }

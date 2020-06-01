@@ -57,17 +57,21 @@ namespace AppBD.Clases
 
 
         }
-        public void updateC(string ubicacion,string numerocCarpetas,string numeroContrato)
+        public void updateC(string ubicacion,string numerocCarpetas,string numeroContrato,string numeroFolios)
         {
             con.conectar();
-            string q = "update  [CONTRATO] set [UBICACIÓN] = @UBI, CARPETAS_NO = @CNO where CONTRATO_NO= @contratono" ;
+            string q = "update  [CONTRATO] set [UBICACIÓN] = @UBI, CARPETAS_NO = @CNO NO_FOLIOS=@NF" +
+                " where CONTRATO_NO= @contratono" ;
             ORDENU = new OleDbCommand(q, con.CANAL);
             ORDENU.Parameters.Add(new OleDbParameter("@UBI", OleDbType.VarWChar));
             ORDENU.Parameters["@UBI"].Value = ubicacion;
             ORDENU.Parameters.Add(new OleDbParameter("@CNO", OleDbType.VarChar));
             ORDENU.Parameters["@CNO"].Value =numerocCarpetas ;
+            ORDENU.Parameters.Add(new OleDbParameter("@NF", OleDbType.VarChar));
+            ORDENU.Parameters["@NF"].Value = numeroFolios;
             ORDENU.Parameters.Add(new OleDbParameter("@contratono", OleDbType.VarChar));
             ORDENU.Parameters["@contratono"].Value = numeroContrato;
+            
 
             ORDENU.Connection.Open();
             ORDENU.ExecuteNonQuery();
