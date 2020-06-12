@@ -148,6 +148,7 @@
             this.textBox4.Size = new System.Drawing.Size(417, 20);
             this.textBox4.TabIndex = 11;
             this.textBox4.Text = "C:\\Users\\sebas\\udistri\\trabajo hermana\\AppBD\\AppBD\\bin\\Debug\\DatosTransfe.xlsx";
+            this.textBox4.TextChanged += new System.EventHandler(this.textBox4_TextChanged);
             // 
             // textBox5
             // 

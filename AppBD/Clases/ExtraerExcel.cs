@@ -14,7 +14,7 @@ namespace AppBD.Clases
         public string ubicacion { get; set; }
         public string carpetasNO { get; set; }
         public string sedno { get; set; }
-        public string numeFol { get; set; }
+        public int numeFol { get; set; }
         public string objeto { get; set; }
         public int plazodias { get; set; }
         public double contraVal { get; set; }

@@ -133,22 +133,19 @@ namespace AppBD
             foreach (DataGridViewRow dgvRenglon in dataGridView1.Rows)
             {
                 int indice = dgvRenglon.Index;
+                Console.WriteLine(indice);
+                   try
+                    {
+
 
                     try
                     {
 
-
-
-                    try
-                    {
-
-                        contratista.consutaexistencia(ls[indice].identifContraits);
+                        Console.WriteLine("constla cotrato");
                         contrato.consultarC(ls[indice].cod);
-
+                        Console.WriteLine(ls[indice].cod);
                         bool exixtencia = true;
-
-                        string cc = contratista.id;
-                        ArrayList nombres = contratista.nombres;
+               
 
                         if (contrato.cod == ls[indice].cod)
                         {
@@ -158,39 +155,55 @@ namespace AppBD
                         }
                         else
                         {
-                            if (cc == ls[indice].identifContraits)
+                            Console.WriteLine("constla cntrats");
+                            contratista.consutaexistencia(ls[indice].identifContraits);
+                            string cc = contratista.id;
+                            ArrayList nombres = contratista.nombres;
+                        if (cc == ls[indice].identifContraits)
                             {
+                                Console.WriteLine("ccedula existe");
                                 for (int i = 0; i < nombres.Count; i++)
                                 {
+                                    Console.WriteLine("bucando nombre");
                                     if (nombres[i].ToString() == ls[indice].nombrecontratis)
                                     {
-
+                                        Console.WriteLine("agragandop"+indice);
+                                        
                                         contratista.consultarID(ls[indice].nombrecontratis,
                                                                 double.Parse(ls[indice].identifContraits));
                                         contrato.addC(ls[indice]);
 
                                         contricon.addConContri(double.Parse(contratista.cod),
                                                                ls[indice].cod);
+                                        Console.WriteLine("agregado cotrato contratista existente");
 
-                                        
                                         break;
 
                                     }
                                     else
                                     {
+                                        Console.WriteLine(" noseencotronombre");
                                         exixtencia = false;
+                                        Console.WriteLine(exixtencia);
+                                        break;
                                     }
                                 }
                             }
-                            else { exixtencia = false; }
+                            else {
+                                
+                                Console.WriteLine("no se ectro cedula");
+                                exixtencia = false;
+                                Console.WriteLine(exixtencia);
+                            }
                             if (exixtencia == false)
                             {
+                                Console.WriteLine("agragandop" + indice);
                                 contrato.addC(ls[indice]);
                                 contratista.obetenerUltimoID();
                                 contratista.agregarContratista(double.Parse(ls[indice].identifContraits), ls[indice].nombrecontratis);
                                 contricon.addConContri(double.Parse(contratista.cod),
                                                                 ls[indice].cod);
-                               
+                                Console.WriteLine("agregado cotrato contratista existente");
 
 
 
@@ -199,10 +212,11 @@ namespace AppBD
 
 
                     }
+           
                     catch (Exception)
                     {
                         MessageBox.Show("Verifique que no esten modificando propiedades de la base o que no hayan movido en archcivo de lugar");
-
+                        break;
                     }
 
 
@@ -211,15 +225,15 @@ namespace AppBD
                    
                 }
 
-                catch (NullReferenceException)
+               catch (NullReferenceException)
                 {
                     MessageBox.Show("campo vacio en la fila " + indice.ToString());
                 }///////PROCESO DEGUARADOD temp
 
+    
 
-
-            }///////////////////////////////////////////////
-
+            }////////////////////////////////////////////////
+            MessageBox.Show("Fin del proceso");
         }
 
         private void label17_Click(object sender, EventArgs e)
@@ -419,7 +433,7 @@ namespace AppBD
                 ex.ubicacion =sl.GetCellValueAsString(fila, 4);
                 ex.carpetasNO = sl.GetCellValueAsString(fila, 5);
                 ex.sedno = sl.GetCellValueAsString(fila, 6);
-                ex.numeFol = sl.GetCellValueAsString(fila, 7);
+                ex.numeFol = sl.GetCellValueAsInt32(fila, 7);
                 ex.objeto = sl.GetCellValueAsString(fila, 8);
                 ex.plazodias = sl.GetCellValueAsInt32(fila, 9);
                 ex.contraVal = sl.GetCellValueAsDouble(fila, 10);

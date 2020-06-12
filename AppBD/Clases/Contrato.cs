@@ -60,14 +60,14 @@ namespace AppBD.Clases
         public void updateC(string ubicacion,string numerocCarpetas,string numeroContrato,string numeroFolios)
         {
             con.conectar();
-            string q = "update  [CONTRATO] set [UBICACIÓN] = @UBI, CARPETAS_NO = @CNO NO_FOLIOS=@NF" +
+            string q = "update  [CONTRATO] set [UBICACIÓN] = @UBI, CARPETAS_NO = @CNO, NO_FOLIOS=@NF" +
                 " where CONTRATO_NO= @contratono" ;
             ORDENU = new OleDbCommand(q, con.CANAL);
             ORDENU.Parameters.Add(new OleDbParameter("@UBI", OleDbType.VarWChar));
             ORDENU.Parameters["@UBI"].Value = ubicacion;
             ORDENU.Parameters.Add(new OleDbParameter("@CNO", OleDbType.VarChar));
             ORDENU.Parameters["@CNO"].Value =numerocCarpetas ;
-            ORDENU.Parameters.Add(new OleDbParameter("@NF", OleDbType.VarChar));
+            ORDENU.Parameters.Add(new OleDbParameter("@NF", OleDbType.Numeric));
             ORDENU.Parameters["@NF"].Value = numeroFolios;
             ORDENU.Parameters.Add(new OleDbParameter("@contratono", OleDbType.VarChar));
             ORDENU.Parameters["@contratono"].Value = numeroContrato;
@@ -84,7 +84,7 @@ namespace AppBD.Clases
             Console.WriteLine(ex.cod);
             string q = "INSERT INTO [CONTRATO](CONTRATO_NO,CONTRATO_SECOP,[AÑO],[UBICACIÓN],CARPETAS_NO,SED_NO,NO_FOLIOS,OBJETO,PLAZO_DIAS,CONTRATO_VALOR,INTERVENTOR) " +
                 "values(@CONTRATO_NO,@CONTRATO_SECOP,@ANO,@UBICACION,@CARPETAS_NO,@SED_NO,@NoFOLIO,@OBJETO,@PLAZO_DIAS,@CONTRATO_VALOR,@INTERVENTOR)";
-            try {
+          /*  try {*/
                 ORDENU = new OleDbCommand(q, con.CANAL);
                 ORDENU.Parameters.Add(new OleDbParameter("@CONTRATO_NO", OleDbType.VarChar));
                 ORDENU.Parameters["@CONTRATO_NO"].Value = ex.cod;
@@ -98,7 +98,7 @@ namespace AppBD.Clases
                 ORDENU.Parameters["@CARPETAS_NO"].Value = ex.carpetasNO;
                 ORDENU.Parameters.Add(new OleDbParameter("@SED_NO", OleDbType.VarChar));
                 ORDENU.Parameters["@SED_NO"].Value = ex.sedno;
-                ORDENU.Parameters.Add(new OleDbParameter("@NoFOLIO", OleDbType.VarChar));
+                ORDENU.Parameters.Add(new OleDbParameter("@NoFOLIO", OleDbType.Numeric));
                 ORDENU.Parameters["@NoFOLIO"].Value = ex.numeFol;
                 ORDENU.Parameters.Add(new OleDbParameter("@OBJETO", OleDbType.VarChar));
                 ORDENU.Parameters["@OBJETO"].Value = ex.objeto;
@@ -111,9 +111,9 @@ namespace AppBD.Clases
                 ORDENU.Connection.Open();
                 ORDENU.ExecuteNonQuery();
                 ORDENU.Connection.Close();
-            }
+           /* }
             catch (Exception) { 
-            }
+            }*/
             
         }
     }
